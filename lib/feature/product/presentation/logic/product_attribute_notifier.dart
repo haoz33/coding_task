@@ -15,6 +15,6 @@ class ProductAttributeNotifier extends StateNotifier<ProductAttribute> {
   }
 }
 
-final productAttributeNotifier =
-    StateNotifierProvider<ProductAttributeNotifier, ProductAttribute>(
-        (ref) => ProductAttributeNotifier());
+final productAttributeNotifier = StateNotifierProvider.autoDispose<
+    ProductAttributeNotifier,
+    ProductAttribute>((ref) => ProductAttributeNotifier());

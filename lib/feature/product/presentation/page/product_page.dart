@@ -47,7 +47,9 @@ class ProductPage extends ConsumerWidget {
               ),
               AvailableSizesSelection(sizes: product.sizes),
               const QuantitySelection(),
-              const AddToCartButton(),
+              AddToCartButton(
+                product: product,
+              ),
               ProductDetail(product: product),
               const Divider(),
               const RecentViewList()

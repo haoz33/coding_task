@@ -7,13 +7,11 @@ part of 'cart_item.dart';
 // **************************************************************************
 
 abstract class _$CartItemCWProxy {
-  CartItem id(int id);
-
   CartItem product(Product product);
 
   CartItem quantity(int quantity);
 
-  CartItem size(String size);
+  CartItem size(int size);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `CartItem(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -22,10 +20,9 @@ abstract class _$CartItemCWProxy {
   /// CartItem(...).copyWith(id: 12, name: "My name")
   /// ````
   CartItem call({
-    int? id,
     Product? product,
     int? quantity,
-    String? size,
+    int? size,
   });
 }
 
@@ -36,16 +33,13 @@ class _$CartItemCWProxyImpl implements _$CartItemCWProxy {
   const _$CartItemCWProxyImpl(this._value);
 
   @override
-  CartItem id(int id) => this(id: id);
-
-  @override
   CartItem product(Product product) => this(product: product);
 
   @override
   CartItem quantity(int quantity) => this(quantity: quantity);
 
   @override
-  CartItem size(String size) => this(size: size);
+  CartItem size(int size) => this(size: size);
 
   @override
 
@@ -56,16 +50,11 @@ class _$CartItemCWProxyImpl implements _$CartItemCWProxy {
   /// CartItem(...).copyWith(id: 12, name: "My name")
   /// ````
   CartItem call({
-    Object? id = const $CopyWithPlaceholder(),
     Object? product = const $CopyWithPlaceholder(),
     Object? quantity = const $CopyWithPlaceholder(),
     Object? size = const $CopyWithPlaceholder(),
   }) {
     return CartItem(
-      id: id == const $CopyWithPlaceholder() || id == null
-          ? _value.id
-          // ignore: cast_nullable_to_non_nullable
-          : id as int,
       product: product == const $CopyWithPlaceholder() || product == null
           ? _value.product
           // ignore: cast_nullable_to_non_nullable
@@ -77,7 +66,7 @@ class _$CartItemCWProxyImpl implements _$CartItemCWProxy {
       size: size == const $CopyWithPlaceholder() || size == null
           ? _value.size
           // ignore: cast_nullable_to_non_nullable
-          : size as String,
+          : size as int,
     );
   }
 }

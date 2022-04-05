@@ -19,6 +19,8 @@ dependencies:
   http:
   flutter_riverpod: ^1.0.0
   cached_network_image: ^3.2.0
+  badges: ^2.0.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

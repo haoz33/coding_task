@@ -8,6 +8,8 @@ class AvailableSizesSelection extends ConsumerWidget {
   final List<String> sizes;
   @override
   Widget build(BuildContext context, ref) {
+    final size = ref.watch(
+        productAttributeNotifier.select((value) => value.size.toString()));
     return ListTile(
       title: Row(
         children: [
@@ -19,9 +21,7 @@ class AvailableSizesSelection extends ConsumerWidget {
             width: 100,
             child: DropdownButton<String>(
               isExpanded: true,
-              value: ref.watch(productAttributeNotifier
-                      .select((value) => value.size.toString())) ??
-                  sizes.first,
+              value: size == '0' ? sizes.first : size,
               items: sizes
                   .map((e) => DropdownMenuItem(value: e, child: Text(e)))
                   .toList(),

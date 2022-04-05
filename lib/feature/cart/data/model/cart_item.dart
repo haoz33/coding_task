@@ -6,16 +6,16 @@ part 'cart_item.g.dart';
 
 @CopyWith()
 class CartItem extends Equatable {
-  const CartItem(
-      {required this.id,
-      required this.product,
-      required this.size,
-      required this.quantity});
+  // A combination of product id and size can be used to identify a cart item
+  CartItem({required this.product, required this.size, required this.quantity})
+      : id = '${product.id}$size';
 
-  final int id;
+  final String id;
   final Product product;
-  final String size;
+  final int size;
   final int quantity;
+
+  double get price => double.parse(product.price.amount) * quantity;
 
   @override
   List<Object?> get props => [id, product, size, quantity];
