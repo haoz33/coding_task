@@ -1,5 +1,6 @@
 import 'package:coding_task/feature/product/data/model/product.dart';
 import 'package:coding_task/feature/product/presentation/page/product_page.dart';
+import 'package:coding_task/feature/product/presentation/widget/product_image.dart';
 import 'package:flutter/material.dart';
 
 class ProductView extends StatelessWidget {
@@ -9,7 +10,7 @@ class ProductView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Image.network(product.mainImage),
+      leading: ProductImage(url: product.mainImage),
       title: Text(product.name),
       subtitle: Text(product.sizes.length.toString() + ' sizes'),
       trailing: Text(product.price.currency + ' ' + product.price.amount),

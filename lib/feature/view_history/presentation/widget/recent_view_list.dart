@@ -1,0 +1,20 @@
+import 'package:coding_task/feature/view_history/presentation/logic/recent_view_notifier.dart';
+import 'package:coding_task/feature/view_history/presentation/widget/recent_view_tile.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+class RecentViewList extends ConsumerWidget {
+  const RecentViewList({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, ref) {
+    final products = ref.watch(recentViewNotifier);
+    return SizedBox(
+      height: 120,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: products.map((e) => RecentViewTile(product: e)).toList(),
+      ),
+    );
+  }
+}
