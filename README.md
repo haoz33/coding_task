@@ -2,6 +2,7 @@
 
 Flutter version: Flutter 2.10.4 • channel stable
 
+Should be runnable out of box with `flutter run`
 
 # Packages used
 
