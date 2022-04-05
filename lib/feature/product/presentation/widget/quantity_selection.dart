@@ -2,34 +2,33 @@ import 'package:coding_task/feature/product/presentation/logic/product_attribute
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class AvailableSizesSelection extends ConsumerWidget {
-  const AvailableSizesSelection({Key? key, required this.sizes})
-      : super(key: key);
-  final List<String> sizes;
+class QuantitySelection extends ConsumerWidget {
+  const QuantitySelection({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context, ref) {
     return ListTile(
       title: Row(
         children: [
-          const Text('Choose Size:'),
-          const SizedBox(
+          Text('Quantity:'),
+          SizedBox(
             width: 18,
           ),
           SizedBox(
             width: 100,
-            child: DropdownButton<String>(
+            child: DropdownButton<int>(
               isExpanded: true,
-              value: ref.watch(productAttributeNotifier
-                      .select((value) => value.size.toString())) ??
-                  sizes.first,
-              items: sizes
-                  .map((e) => DropdownMenuItem(value: e, child: Text(e)))
+              value: ref.watch(
+                  productAttributeNotifier.select((value) => value.quantity)),
+              items: List.generate(10, (index) => index + 1, growable: false)
+                  .map((e) =>
+                      DropdownMenuItem(value: e, child: Text(e.toString())))
                   .toList(),
               onChanged: (v) {
                 if (v != null) {
                   ref
                       .read(productAttributeNotifier.notifier)
-                      .sizeUpdated(int.parse(v));
+                      .quantityUpdated(v);
                 }
               },
             ),

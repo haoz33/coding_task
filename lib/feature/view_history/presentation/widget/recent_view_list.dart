@@ -9,11 +9,33 @@ class RecentViewList extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ref) {
     final products = ref.watch(recentViewNotifier);
-    return SizedBox(
-      height: 120,
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        children: products.map((e) => RecentViewTile(product: e)).toList(),
+
+    if (products.isEmpty) {
+      return const SizedBox();
+    }
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: SizedBox(
+        height: 150,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'Recently Viewed',
+                style: Theme.of(context).textTheme.headline6,
+              ),
+            ),
+            Expanded(
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children:
+                    products.map((e) => RecentViewTile(product: e)).toList(),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

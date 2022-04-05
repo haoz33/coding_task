@@ -6,6 +6,7 @@ part 'product.g.dart';
 @JsonSerializable()
 class Product extends Equatable {
   final String id;
+  @JsonKey(name: 'SKU')
   final String? sku;
   final String name;
   final String brandName;

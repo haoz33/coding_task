@@ -19,6 +19,7 @@ class ProductDetail extends StatelessWidget {
             product.description,
           ),
           Text('\nbrand: ${product.brandName}'),
+          Text('\nSKU: ${product.sku}'),
         ],
       ),
     );
